@@ -1,0 +1,16 @@
+extends ../base.pug
+
+block content
+  h1 Add a new car
+  form(action=`/drivers/${driver.id}/cars` method="POST")
+    p
+      label(for="make") Make &nbsp;
+      input(type="text", name="make" id="make")
+    p
+      label(for="model") Model &nbsp;
+      input(type="text", name="model" id="model")
+    p
+      label(for="year") Year &nbsp;
+      input(type="number", name="year" id="year")
+    p
+      button Add a new car

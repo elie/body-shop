@@ -4,7 +4,13 @@ const mongoose = require("mongoose");
 
 const driverSchema = new mongoose.Schema({
   name: String,
-  age: Number
+  age: Number,
+  cars: [
+    {
+      ref: "Car",
+      type: mongoose.Schema.Types.ObjectId
+    }
+  ]
 });
 
 // create a model

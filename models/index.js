@@ -8,3 +8,4 @@ mongoose.connect("mongodb://localhost/rithm-body-shop");
 // }
 
 module.exports.Driver = require("./driver");
+module.exports.Car = require("./car");
