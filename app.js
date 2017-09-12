@@ -4,11 +4,15 @@ const methodOverride = require("method-override");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
+const driverRoutes = require("./routes/drivers");
+
 app.set("view engine", "pug");
 app.use(express.static(__dirname + "/public"));
 app.use(morgan("tiny"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+
+app.use("/drivers", driverRoutes);
 
 app.get("/", function(req, res) {
   res.redirect("/drivers");

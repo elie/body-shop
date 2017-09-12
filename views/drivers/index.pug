@@ -1,0 +1,9 @@
+extends ../base.pug
+
+block content
+  h1 See all the drivers
+  for driver in drivers
+    p #{driver.name} &nbsp;
+      a(href=`/drivers/${driver.id}/edit`) Edit a driver
+      form(action=`/drivers/${driver.id}?_method=DELETE`, method="POST")
+        button Delete

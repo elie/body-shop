@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 // create a schema
 
 const driverSchema = new mongoose.Schema({
-  name: String
+  name: String,
+  age: Number
 });
 
 // create a model
