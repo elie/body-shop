@@ -25,23 +25,6 @@ router.post("/", function(req, res, next) {
     });
 });
 
-router.get("/new", function(req, res, next) {
-  res.render("drivers/new");
-});
-
-router.get("/:id", function(req, res, next) {});
-
-router.get("/:id/edit", function(req, res, next) {
-  db.Driver
-    .findById(req.params.id)
-    .then(function(driver) {
-      res.render("drivers/edit", { driver });
-    })
-    .catch(function(err) {
-      next(err);
-    });
-});
-
 router.patch("/:id", function(req, res, next) {
   db.Driver
     .findByIdAndUpdate(req.params.id, req.body)
@@ -53,15 +36,14 @@ router.patch("/:id", function(req, res, next) {
     });
 });
 
-router.delete("/:id", function(req, res, next) {
-  db.Driver
-    .findByIdAndRemove(req.params.id)
-    .then(function() {
-      res.redirect("/drivers");
-    })
-    .catch(function(err) {
-      next(err);
-    });
+router.delete("/:id", async function(req, res, next) {
+  try {
+    let foundDriver = await db.Driver.findById(req.params.id);
+    let removedDriver = await foundDriver.remove();
+    res.status(204).send("Deleted");
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;
