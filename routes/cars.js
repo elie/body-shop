@@ -9,6 +9,7 @@ router.get("/", function(req, res, next) {
     .populate("cars")
     .then(function(driver) {
       res.render("cars/index", { driver });
+      // res.send(driver);
     })
     .catch(function(err) {
       next(err);
