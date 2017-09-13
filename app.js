@@ -17,7 +17,7 @@ app.use("/drivers", driverRoutes);
 app.use("/drivers/:driver_id/cars", carRoutes);
 
 app.get("/", function(req, res) {
-  res.redirect("/drivers");
+  res.render("index");
 });
 
 // catch 404 and forward to error handler

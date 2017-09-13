@@ -1,9 +1,0 @@
-extends ../base.pug
-
-block content
-    p #{driver.name} &nbsp;
-      a(href=`/drivers/${driver.id}/cars/new`) Create a car
-    for car in driver.cars
-      p #{car.make}
-      p #{car.model}
-      p #{car.year}

@@ -6,7 +6,7 @@ router.get("/", function(req, res, next) {
   db.Driver
     .find({})
     .then(function(drivers) {
-      res.render("drivers/index", { drivers });
+      res.send(drivers);
     })
     .catch(function(err) {
       next(err);
