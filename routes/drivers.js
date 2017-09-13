@@ -5,6 +5,7 @@ const db = require("../models");
 router.get("/", function(req, res, next) {
   db.Driver
     .find({})
+    .populate("cars")
     .then(function(drivers) {
       res.send(drivers);
     })
