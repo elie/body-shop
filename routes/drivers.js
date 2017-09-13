@@ -17,8 +17,8 @@ router.get("/", function(req, res, next) {
 router.post("/", function(req, res, next) {
   db.Driver
     .create(req.body)
-    .then(function() {
-      res.redirect("/drivers");
+    .then(function(newDriver) {
+      res.status(201).send(newDriver);
     })
     .catch(function(err) {
       next(err);

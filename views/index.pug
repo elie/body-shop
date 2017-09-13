@@ -4,5 +4,17 @@ block content
   script(src="https://code.jquery.com/jquery-3.1.1.js")
   script(src='js/main.js')
   h1 Here is our SPA
-
   ul#driver-list
+
+  h4 Create a new driver
+    form(action="javascript:void(0)")
+      p
+        label(for="name") Name: &nbsp;
+        input(type="text", name="name", id="name")
+      p
+        label(for="age") Age: &nbsp;
+        input(type="text", name="age", id="age")
+      p
+        button Add a new driver!
+
+
