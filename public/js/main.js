@@ -1,9 +1,18 @@
 $(document).ready(function() {
   $.getJSON("/drivers").then(function(data) {
     data.forEach(function(doc) {
-      let $li = $("<li>", {
-        text: `${doc.name} - ${doc.age}`
+      let $a = $("<a>", {
+        href: "javascript:void(0)",
+        text: " X",
+        id: doc._id
       });
+
+      let $li = $("<li>", {
+        text: `${doc.name} - ${doc.age} `
+      });
+
+      $li.append($a);
+
       $("#driver-list").append($li);
     });
   });
